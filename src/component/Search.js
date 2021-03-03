@@ -15,7 +15,7 @@ const Search = ({ onSearch }) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Your github username"
+          placeholder="Search username.."
         />
         <button onClick={handleSubmit}>Search</button>
       </div>

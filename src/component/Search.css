@@ -33,3 +33,14 @@ button {
 button:active {
   transform: translateY(1px);
 }
+
+@media all and (max-width: 600px) {
+  .search-c {
+    width: 100%;
+    justify-content: center;
+  }
+  input {
+    font-size: 15px;
+    margin-right: 5px;
+  }
+}
