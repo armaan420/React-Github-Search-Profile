@@ -1,11 +1,18 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./component/Search";
 import User from "./component/User";
 
 function App() {
   const [user, setUser] = useState({});
   // const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/example`)
+      .then((res) => res.json())
+      .then(setUser)
+      .then(() => console.log(user));
+  }, []);
 
   const getUser = (query) => {
     fetch(`https://api.github.com/users/${query}`)
@@ -16,8 +23,7 @@ function App() {
   return (
     <div className="App">
       <Search onSearch={getUser} />
-      <User profile={user} />
-      {user.location}
+      <User user={user} />
     </div>
   );
 }
