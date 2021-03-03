@@ -1,21 +1,23 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Search from "./component/Search";
+import User from "./component/User";
 
 function App() {
   const [user, setUser] = useState({});
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    fetch(`https://api.github.com/users?name=${query}`)
+  const getUser = (query) => {
+    fetch(`https://api.github.com/users/${query}`)
       .then((res) => res.json())
       .then(setUser);
-  }, [query]);
+  };
 
   return (
     <div className="App">
-      <Search onClick={(q) => setQuery(q)} />
-      {user.bio}
+      <Search onSearch={getUser} />
+      <User profile={user} />
+      {user.location}
     </div>
   );
 }

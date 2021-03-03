@@ -1,20 +1,24 @@
 import React, { useState } from "react";
+import "./Search.css";
 
-const Search = ({ onClick }) => {
+const Search = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = () => {
-    onClick(query);
+    onSearch(query);
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Search</button>
+    <div className="search">
+      <div className="search-c">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Your github username"
+        />
+        <button onClick={handleSubmit}>Search</button>
+      </div>
     </div>
   );
 };
