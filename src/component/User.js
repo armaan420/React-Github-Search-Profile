@@ -7,7 +7,7 @@ import { FaTwitter } from "react-icons/fa";
 const User = ({ user }) => {
   return (
     <div className="container">
-      {user === "fail" ? (
+      {user.value === "null" ? (
         <h1>User does not exit!</h1>
       ) : (
         <>
@@ -18,24 +18,44 @@ const User = ({ user }) => {
           </div>
           <div className="info">
             <div className="child">
-              {user.location && <h4>Location:</h4>}
-              {user.location && <p>{user.location}</p>}
+              {user.location && (
+                <div>
+                  <h4>Location:</h4>
+                  <p>{user.location}</p>
+                </div>
+              )}
             </div>
             <div className="child">
-              {user.email && <h4>Email:</h4>}
-              {user.email && <p>{user.email}</p>}
+              {user.email && (
+                <div>
+                  <h4>Email:</h4>
+                  <p>{user.email}</p>
+                </div>
+              )}
             </div>
             <div className="child">
-              {user.company && <h4>Company:</h4>}
-              {user.company && <p>{user.company}</p>}
+              {user.company && (
+                <div>
+                  <h4>Company:</h4>
+                  <p>{user.company}</p>
+                </div>
+              )}
             </div>
             <div className="child">
-              {<h4>Public Repositories:</h4>}
-              {user.public_repos && <p>{user.public_repos}</p>}
+              {user.public_repos && (
+                <div>
+                  <h4>Public Repositories:</h4>
+                  <p>{user.public_repos}</p>
+                </div>
+              )}
             </div>
             <div className="child">
-              {<h4>Followers:</h4>}
-              {user.followers && <p>{user.followers}</p>}
+              {user.followers && (
+                <div>
+                  <h4>Followers:</h4>
+                  <p>{user.followers}</p>
+                </div>
+              )}
             </div>
             <div className="child">
               {user.twitter_username && (
@@ -60,8 +80,13 @@ const User = ({ user }) => {
               )}
             </div>
             <div className="child">
-              {user.created_at && <h4>Created acount on:</h4>}
-              {user.created_at && <p>{user.created_at.slice(0, 10)}</p>}
+              {user.created_at && (
+                <div>
+                  <h4>Created acount on:</h4>
+
+                  <p>{user.created_at.slice(0, 10)}</p>
+                </div>
+              )}
             </div>
           </div>
         </>

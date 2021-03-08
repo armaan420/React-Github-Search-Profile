@@ -11,6 +11,7 @@
   justify-content: center;
   background-color: rgb(74, 131, 123);
   position: relative;
+  min-height: 85vh;
   color: whitesmoke;
 }
 
@@ -25,7 +26,7 @@
 .img > img {
   border-radius: 50%;
   padding: 20px 0;
-  height: 40%;
+  height: 200px;
 }
 
 .info {

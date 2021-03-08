@@ -1,28 +1,30 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Search from "./component/Search";
 import User from "./component/User";
 import Loader from "./component/Loader";
 
 function App() {
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetch(`https://api.github.com/users/example`)
-      .then((res) => res.json())
-      .then(setUser)
-      .catch((e) => console.log(e));
+  // useEffect(() => {
+  //   fetch(`https://api.github.com/users/example`)
+  //     .then((res) => res.json())
+  //     .then(setUser)
+  //     .catch((e) => console.log(e));
 
-    setLoading((loading) => !loading);
-  }, []);
+  //   setLoading((loading) => !loading);
+  // }, []);
 
   const getUser = (query) => {
     setLoading((loading) => !loading);
     fetch(`https://api.github.com/users/${query}`)
       .then((res) => res.json())
       .then(setUser)
-      .catch((e) => setUser("fail"));
+      .catch((e) => {
+        console.log(e);
+      });
     setLoading((loading) => !loading);
   };
 
